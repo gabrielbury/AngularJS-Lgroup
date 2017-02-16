@@ -1,0 +1,31 @@
+﻿
+.ngv.ng-enter{
+    opacity:1;
+}
+.ngv.ng-enter-active{
+    opacity:0.5;
+}
+/*Começo da transição partir*/
+.ngv.ng-leave{
+    opacity:1;
+    transition: 2s linear all;
+    -moz-transition: 2s linear all;
+    -webkit-transition: 2s linear all;
+}
+
+/*Pocesso da transição partir*/
+.ngv.ng-leave-active{
+    opacity:0;
+}
+
+/*começo da transicao*/
+.error-login.ng-enter{
+    opacity:0;
+    transition: 2s linear all;
+}
+
+/*Processo de transição*/
+.error-login.ng-enter-active{
+    opacity:1;
+    max-height:100%;
+}

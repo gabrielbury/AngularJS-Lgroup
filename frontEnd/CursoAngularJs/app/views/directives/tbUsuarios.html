@@ -1,0 +1,72 @@
+﻿<div class="form-horizontal tableCadastro">
+    <div class="form-group">
+        <!--Filtro de Nome-->
+        <div class="col-xs-4">
+            <input type="text" 
+                   class="form-control"
+                   ng-model="filtro.nome"
+                   placeholder="Filtro por nome" />
+        </div>
+        <!--Email-->
+        <div class="col-xs-4">
+            <input type="text"
+                   class="form-control"
+                   ng-model="filtro.email"
+                   placeholder="Filtro por email" />
+        </div>
+        <!--Tudo-->
+        <div class="col-xs-4">
+            <input type="text"
+                   class="form-control"
+                   ng-model="filtro"
+                   placeholder="Filtrar tudo" />
+        </div>
+    </div>
+</div>
+<pre>{{filtro}}</pre>
+
+<div class="table-responsive tableCadastro">
+    <!--Aqui estará a tabela com os usuários cadastrados-->
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Salário</th>
+                <th>Data de Nascimento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--ng-repeat é uma diretiva que percorre uma lista => Analogo ao foreach -->
+            <!--Todo o filtro precisa do pipe "|"-->
+            <!--O orderBy funciona da seguinte forma (-campo) => forma descendete 
+                (campo) => forma ascendete
+                -->
+            <!--O orderBy funciona da seguinte forma (campo : true) => forma descendete
+            (campo : false) => forma ascendete
+            -->
+            <!--orderBy: ['nome' , 'email'] : true (mais de um campo)-->
+
+            <!--<tr ng-repeat="usuario in usuarios | usuarioFilter | filter: filtro | orderBy: ['nome' , '-email']
+                | limitTo: 1000"
+                ng-click="selecionarUsuario(usuario)">-->
+                <tr ng-repeat="usuario in usuarios | filter: filtro | orderBy: ['nome' , '-email']
+                | limitTo: 1000"
+                ng-click="selecionarUsuario(usuario)">
+
+                <!--Todo Filtro ele começa com o "|" -->
+                <!--Existem alguns Filtros já prontos do angular-->
+                <!--Existem vários na internet-->
+                <td>{{$index + 1}}</td>
+                <td>{{usuario.nome | uppercase}}</td> <!--Maiusculo-->
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.telefone}}</td>
+                <td>{{usuario.salario | currency}}</td> <!--monetária-->
+                <td>{{usuario.dataNascimento | date : 'dd/MM/yyyy'}}</td> <!--Formatar a data-->
+            </tr>
+        </tbody>
+    </table>
+    <!--<pre>{{usuarioSelecionado}}</pre>-->
+</div>

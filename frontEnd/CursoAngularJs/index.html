@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<!--Definindo qual modulo será usado na página-->
+<html ng-app="app">
+<head>
+
+    <title>Curso de Angular Js</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/site/cadastro.css" rel="stylesheet" />
+    <link href="Content/loading-bar.css" rel="stylesheet" />
+    <link href="Content/site/animate.css" rel="stylesheet" />
+    <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" />
+
+</head>
+<!--Diretiva usada para definir qual controller iremos usar-->
+<body>
+    <!-- O titulo esta definido Globalmente -->
+    <!-- Foi criado na função run, que é executada antes de -->
+    <!-- Renderizar as controller -->
+    <header-custom subtitulo="curso de AngularJs">
+        <b>{{titulo}}</b>
+        <!--Além do título iremos mostrar o nome do usuario-->
+        <span class="text-right" ng-bind="usuario"></span>
+    </header-custom>
+
+    <ng-view class="ngv"></ng-view>
+
+    <!--Libs-->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="app/i18n/angular-locale_pt-br.js"></script>
+    <script src="Scripts/angular-local-storage.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/loading-bar.js"></script>
+
+    <!--Bootstrap.ui-->
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+    <!--Apps-->
+    <script src="app/app.js"></script>
+
+    <!--Configs-->
+    <script src="app/startup/routeConfig.js"></script>
+    <script src="app/startup/rootScopeRunConfig.js"></script>
+    <script src="app/startup/interceptorConfig.js"></script>
+    <script src="app/startup/getDateProvider.js"></script>
+    <script src="app/startup/errorRunConfig.js"></script>
+    <script src="app/startup/routeRunConfig.js"></script>
+
+    <!--Providers-->
+    <script src="app/providers/getDataProvider.js"></script>
+
+    <!--Constants-->
+    <script src="app/constants/apiConstant.js"></script>
+    <script src="app/constants/errorConstant.js"></script>
+
+    <!--Controllers-->
+    <script src="app/controllers/usuarioController.js"></script>
+    <script src="app/controllers/detalhesUsuarioController.js"></script>
+    <script src="app/controllers/loginUsuarioController.js"></script>
+    <script src="app/controllers/modalController.js"></script>
+
+    <!--Services-->
+    <script src="app/services/usuarioService.js"></script>
+    <script src="app/services/usuario2Service.js"></script>
+    <script src="app/services/profissoesService.js"></script>
+    <script src="app/services/oAuthService.js"></script>
+
+    <!--Factories-->
+    <script src="app/factories/usuarioFactory.js"></script>
+    <script src="app/factories/interceptorFactory.js"></script>
+    <script src="app/factories/oAuthFactory.js"></script>
+
+    <!--Directives-->
+    <script src="app/directives/btnSubmit.js"></script>
+    <script src="app/directives/tbUsuarios.js"></script>
+    <script src="app/directives/headerCustom.js"></script>
+
+    <!--Filters-->
+    <script src="app/filters/usuarioFilter.js"></script>
+
+</body>
+</html>

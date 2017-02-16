@@ -1,0 +1,115 @@
+﻿
+<div ng-controller="usuarioController">
+    <!--Criando um formulario simples-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Existem dois modelos até agora -->
+                <!-- Temos a váriavel de formulario => formularioCadastro -->
+                <form class="form-horizontal form"
+                      name="formularioCadastro"
+                      ng-submit="addUsuario(formulario)">
+                    
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <label class="control-label">Nome</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="formulario.nome"
+                                   name="nome"
+                                   required />
+                            <!-- Ng-show mostra algo dado uma condição-->
+                            <!-- Pristine => virgem -> seu estado pernamece inalterado -->
+                            <p ng-show="formularioCadastro.nome.$invalid &&
+                               !formularioCadastro.nome.$pristine">
+
+                                O nome deve ser preechido!!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <!-- Temos a váriavel de formulario => formularioCadastro.email -->
+                    <!-- Temos a váriavel => formulario.email -->
+                    <!-- Para que as validações funcionem deve haver um ng-model e um name -->
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <label class="control-label">Email</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="email"
+                                   class="form-control"
+                                   ng-model="formulario.email"
+                                   name="email"
+                                   required />
+                            <!--Existe uma variavel chamada $error que mostra os erros-->
+                            <p ng-show="formularioCadastro.email.$error.required
+                               && !formularioCadastro.email.$pristine">
+                                Favor Inserir o seu e-mail
+                            </p>
+                            <p ng-show="formularioCadastro.email.$error.email">
+                                Favor Inserir um e-mail válido
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--Telefone-->
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <label class="control-label">Telefone</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="formulario.telefone"
+                                   name="telefone"
+                                   required
+                                   ng-pattern="/^[0-9]{5}-[0-9]{4}$/" />
+
+                            <p ng-show="formularioCadastro.telefone.$error.required
+                               && !formularioCadastro.telefone.$pristine">
+                                Favor inserir um telefone
+                            </p>
+                            <p ng-show="formularioCadastro.telefone.$error.pattern">
+                                Favor inserir um telefone válido
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--Profissões-->
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <label class="control-label">Profissões</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <!--ng-option vai varrer uma lista 
+                                e colocá-los dentro dos options
+                                do select -->
+                            <select class="form-control"
+                                    ng-model="formulario.profissao"
+                                    ng-options="profissao.nome for profissao in profissoes">
+                                <option value="">Selecione uma profissão</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--Botao que ira adiocionar um usuario no sistema-->
+                    <div class="form-group">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-9">
+                            <btn-submit></btn-submit>
+                        </div>
+                    </div>
+
+                    <!--<pre>{{formularioCadastro | json}}</pre>-->
+                </form>
+            </div>
+            <!--A variavel usuarios está vindo do usuariosController-->
+            <!--Estamos passando esta variavel para a diretiva-->
+            <tb-usuarios xptousuarios="usuarios"></tb-usuarios>
+        </div>
+    </div>
+
+</div>

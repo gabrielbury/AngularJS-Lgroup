@@ -1,0 +1,17 @@
+﻿
+#div1{
+    width:100px;
+    height:100px;
+    transition: width 2s, height 3s;
+    -webkit-transition: width 2s, height 3s;
+    -moz-transition: width 2s, height 3s;
+    -o-transition: width 2s, height 3s;
+    background-color: #ff6a00;
+    opacity: 0.5;
+}
+
+#div1:hover{
+    width:300px;
+    height:300px;
+    opacity: 1;
+}

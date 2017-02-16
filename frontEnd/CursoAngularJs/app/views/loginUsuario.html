@@ -1,0 +1,77 @@
+﻿
+<div class="container">
+    <form class="form-horizontal"
+          name="formLogin"
+          ng-submit="logar(login)">
+        <!--Login-->
+        <div class="form-group">
+            <div class="col-xs-2">
+                <label class="control-label">
+                    Login
+                </label>
+            </div>
+            <div class="col-xs-10">
+                <input type="text"
+                       class="form-control"
+                       name="nome"
+                       ng-model="login.nome" />
+            </div>
+        </div>
+
+        <!--Senha-->
+        <div class="form-group">
+            <div class="col-xs-2">
+                <label class="control-label">
+                    Senha
+                </label>
+            </div>
+            <div class="col-xs-10">
+                <input type="password"
+                       class="form-control"
+                       name="senha"
+                       ng-model="login.senha" />
+            </div>
+        </div>
+
+        <!--submit-->
+        <div class="form-group">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-10">
+                <button type="submit"
+                        class="btn btn-primary form-control">
+                    <span class="glyphicon glyphicon-log-in">
+                        Login
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!--Modal-->
+        <div class="form-group">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-10">
+                <button type="button"
+                        class="btn btn-default form-control"
+                        ng-click="abrirModal('sm')">
+                    <span class="glyphicon glyphicon-log-in">
+                        Modal
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!--Mensagem de login-->
+
+        <div class="form-group error-login" ng-if="status != undefined && status != ''">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-10">
+                <div class="alert alert-info">
+                    {{status}}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

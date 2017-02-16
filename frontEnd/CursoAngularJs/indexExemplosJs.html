@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+</head>
+    <body>
+        
+        <!--Temos uma controller dentro da outra-->
+        <!--Controller 1-->
+        <div ng-controller="controller1" style="padding: 20px; background-color: red">
+            <input type="text" ng-model="nome"/><br/>
+            Controller1 => {{nome}}
+
+            <!--Controller2-->
+            <div ng-controller="controller2" style="padding: 20px; background-color: green">
+                <input type="text" ng-model="nome" /><br />
+                Controller2 => {{nome}}
+            </div>
+
+        </div>
+        
+        <script src="Scripts/angular.js"></script>
+        <script>
+            var app = angular.module('app', []);
+
+            //Definindo a controller 1.
+            app.controller('controller1', controller1);
+            app.controller('controller2', controller2);
+
+            controller1.$inject = ['$scope'];
+            controller2.$inject = ['$scope'];
+
+            function controller1($scope) {
+                $scope.nome = "";
+            }
+
+            function controller2($scope) {
+            }
+        </script>
+    </body>
+    
+
+</html>
